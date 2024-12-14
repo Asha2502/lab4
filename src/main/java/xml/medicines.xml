@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Medicine>
+    <Drug>
+        <Name>Ибупрофен</Name>
+        <Pharm>PharmaCorp</Pharm>
+        <Group>Болеутоляющие</Group>
+        <Analogs>
+            <Analog>Нурофен</Analog>
+            <Analog>Адвил</Analog>
+        </Analogs>
+        <Versions>
+            <Version>
+                <Type>Таблетки</Type>
+                <Manufacturer>
+                    <Certificate>
+                        <Number>12345</Number>
+                        <IssueDate>2023-01-01</IssueDate>
+                        <ExpiryDate>2025-01-01</ExpiryDate>
+                        <Organization>HealthReg</Organization>
+                    </Certificate>
+                    <Package>
+                        <Type>Блистер</Type>
+                        <Quantity>20</Quantity>
+                        <Price>120.50</Price>
+                    </Package>
+                    <Dosage>
+                        <Amount>200 мг</Amount>
+                        <Frequency>2 раза в день</Frequency>
+                    </Dosage>
+                </Manufacturer>
+            </Version>
+        </Versions>
+    </Drug>
+</Medicine>

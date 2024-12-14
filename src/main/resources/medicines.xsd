@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:element name="Medicine">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Drug" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Name" type="xs:string"/>
+                            <xs:element name="Pharm" type="xs:string"/>
+                            <xs:element name="Group" type="xs:string"/>
+                            <xs:element name="Analogs">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Analog" type="xs:string" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Versions">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Version" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Type" type="xs:string"/>
+                                                    <xs:element name="Manufacturer">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Certificate">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="Number" type="xs:string"/>
+                                                                            <xs:element name="IssueDate" type="xs:date"/>
+                                                                            <xs:element name="ExpiryDate" type="xs:date"/>
+                                                                            <xs:element name="Organization" type="xs:string"/>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="Package">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="Type" type="xs:string"/>
+                                                                            <xs:element name="Quantity" type="xs:int"/>
+                                                                            <xs:element name="Price" type="xs:decimal"/>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="Dosage">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="Amount" type="xs:string"/>
+                                                                            <xs:element name="Frequency" type="xs:string"/>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
