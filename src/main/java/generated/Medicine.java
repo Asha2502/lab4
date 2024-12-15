@@ -18,17 +18,15 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "drug"
+        "drug"
 })
 @XmlRootElement(name = "Medicine")
 public class Medicine {
 
     @XmlElement(name = "Drug", required = true)
     protected List<Medicine.Drug> drug;
-
 
     public List<Medicine.Drug> getDrug() {
         if (drug == null) {
@@ -38,16 +36,16 @@ public class Medicine {
     }
 
 
-
+    @Setter
+    @Getter
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "name",
-        "pharm",
-        "group",
-        "analogs",
-        "versions"
+            "name",
+            "pharm",
+            "group",
+            "analogs",
+            "versions"
     })
-    @Getter @Setter @ToString
     public static class Drug {
 
         @XmlElement(name = "Name", required = true)
@@ -61,16 +59,28 @@ public class Medicine {
         @XmlElement(name = "Versions", required = true)
         protected Medicine.Drug.Versions versions;
 
+        @Override
+        public String toString() {
+
+            return "Drug{" +
+                    "\nname = " + name +
+                    "\npharm = " + pharm +
+                    "\ngroup = " + group +
+                    "\nanalogs = " + analogs +
+                    "\nversions = " + versions +
+                    "\n}";
+        }
+
 
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "analog"
+                "analog"
         })
+        @ToString
         public static class Analogs {
 
             @XmlElement(name = "Analog", required = true)
             protected List<String> analog;
-
 
             public List<String> getAnalog() {
                 if (analog == null) {
@@ -79,13 +89,16 @@ public class Medicine {
                 return this.analog;
             }
 
+            @Override
+            public String toString() {
+                return analog.toString();
+            }
         }
-
 
 
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "version"
+                "version"
         })
         public static class Versions {
 
@@ -99,13 +112,18 @@ public class Medicine {
                 return this.version;
             }
 
+            @Override
+            public String toString() {
+                return "Versions{" + version + '}';
+            }
 
+            @Setter
+            @Getter
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "type",
-                "manufacturer"
+                    "type",
+                    "manufacturer"
             })
-            @Getter @Setter
             public static class Version {
 
                 @XmlElement(name = "Type", required = true)
@@ -113,12 +131,22 @@ public class Medicine {
                 @XmlElement(name = "Manufacturer", required = true)
                 protected Medicine.Drug.Versions.Version.Manufacturer manufacturer;
 
+                @Override
+                public String toString() {
+                    return "\nversion{ " +
+                            "type = " + type +
+                            manufacturer +
+                            '}';
+                }
 
+
+                @Getter
+                @Setter
                 @XmlAccessorType(XmlAccessType.FIELD)
                 @XmlType(name = "", propOrder = {
-                    "certificate",
-                    "_package",
-                    "dosage"
+                        "certificate",
+                        "_package",
+                        "dosage"
                 })
                 public static class Manufacturer {
 
@@ -130,13 +158,22 @@ public class Medicine {
                     protected Medicine.Drug.Versions.Version.Manufacturer.Dosage dosage;
 
 
+                    @Override
+                    public String toString() {
+                        return "\nManufacturer{" +
+                                certificate +
+                                _package + dosage +
+                                '}';
+                    }
 
+                    @Setter
+                    @Getter
                     @XmlAccessorType(XmlAccessType.FIELD)
                     @XmlType(name = "", propOrder = {
-                        "number",
-                        "issueDate",
-                        "expiryDate",
-                        "organization"
+                            "number",
+                            "issueDate",
+                            "expiryDate",
+                            "organization"
                     })
                     public static class Certificate {
 
@@ -151,13 +188,23 @@ public class Medicine {
                         @XmlElement(name = "Organization", required = true)
                         protected String organization;
 
+                        @Override
+                        public String toString() {
+                            return "\nCertificate{ " +
+                                    "number = " + number +
+                                    ", issueDate = " + issueDate +
+                                    ", expiryDate = " + expiryDate +
+                                    ", organization = " + organization + '}';
+                        }
                     }
 
 
+                    @Setter
+                    @Getter
                     @XmlAccessorType(XmlAccessType.FIELD)
                     @XmlType(name = "", propOrder = {
-                        "amount",
-                        "frequency"
+                            "amount",
+                            "frequency"
                     })
                     public static class Dosage {
 
@@ -166,16 +213,23 @@ public class Medicine {
                         @XmlElement(name = "Frequency", required = true)
                         protected String frequency;
 
-
+                        @Override
+                        public String toString() {
+                            return "\nDosage{ " +
+                                    "amount = " + amount +
+                                    ", frequency = " + frequency +
+                                    '}';
+                        }
                     }
 
 
-
+                    @Setter
+                    @Getter
                     @XmlAccessorType(XmlAccessType.FIELD)
                     @XmlType(name = "", propOrder = {
-                        "type",
-                        "quantity",
-                        "price"
+                            "type",
+                            "quantity",
+                            "price"
                     })
                     public static class Package {
 
@@ -186,14 +240,17 @@ public class Medicine {
                         @XmlElement(name = "Price", required = true)
                         protected BigDecimal price;
 
+                        @Override
+                        public String toString() {
+                            return "\nPackage{ " +
+                                    "type = " + type +
+                                    ", quantity = " + quantity +
+                                    ", price = " + price +
+                                    '}';
+                        }
                     }
-
                 }
-
             }
-
         }
-
     }
-
 }

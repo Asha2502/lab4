@@ -29,6 +29,29 @@
                     </Dosage>
                 </Manufacturer>
             </Version>
+            <Version>
+                <Type>Капсулы</Type>
+            </Version>
+        </Versions>
+    </Drug>
+    <Drug>
+        <Name>Парацетамол</Name>
+        <Pharm>MedHealth</Pharm>
+        <Group>Жаропонижающие</Group>
+        <Versions>
+            <Version>
+                <Manufacturer>
+                    <Package>
+                        <Price>80.00</Price>
+                        <Quantity>10</Quantity>
+                        <Type>Коробка</Type>
+                    </Package>
+                    <Certificate>
+                        <Number>54321</Number>
+                        <Organization>MedControl</Organization>
+                    </Certificate>
+                </Manufacturer>
+            </Version>
         </Versions>
     </Drug>
 </Medicine>
